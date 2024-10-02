@@ -1,5 +1,4 @@
-
-
+# Task 2: Customer Service Ticket Tracker
 
 
 def open_new_ticket(tickets, ticket_id, customer, issue):
@@ -18,9 +17,14 @@ def update_ticket_status(tickets, ticket_id, status):
 
 def display_tickets(tickets):
     for tid, details in tickets.items():
-        print(f"{tid}, Customer: {details["Customer"]}, Issue: {details["Issue"]}, Status: {details["Status"]}.")
+        if details["Status"] == "open":
+            print(f"{tid}, Customer: {details["Customer"]}, Issue: {details["Issue"]}, Status: {details["Status"]}.")
 
-service_tickets = {}
+
+service_tickets = {
+    "Ticket001" : {"Customer" : "Alice", "Issue" : "Login problem", "Status" : "open"},
+    "Ticket002" : {"Customer" : "Bob", "Issue" : "Payment issue", "Status" : "closed"}
+}
 
 while True:
     print("\nCustomer Service Ticket Tracker")
